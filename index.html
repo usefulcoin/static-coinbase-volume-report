@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Coinbase 24 Hour Volume Report</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="description" content>
+    <meta name="keywords" content>
+    <link rel="stylesheet" href="stylesheets/main.css">
+  </head>
+  <body class="is-preload">
+    <!--  Wrapper -->
+    <div id="wrapper">
+      <!--  Intro -->
+      <section class="intro">
+        <header>
+          <h1>Coinbase Price & Volume Report</h1>
+          <p>Report of currency prices and trading volume in the last 24 hours on <a href="https://prime.coinbase.com">Coinbase Prime</a> using the <a href="https://twitter.com/usefulcoinllc">@usefulcoinllc</a> account.</p>
+          <ul class="actions">
+            <li><a class="arrow scrolly" href="#productvolumes"><span class="label">Next</span></a></li>
+          </ul>
+        </header>
+        <div class="content"><span class="image fill" data-position="center"><img src="images/liquidity.jpg" alt="liquidity"></span></div>
+      </section>
+      <!--  Section -->
+      <section id="productvolumes">
+        <header>
+          <h3>Product Volumes</h3>
+        </header>
+        <div class="content">
+          <p>Coinbase Prime <strong>currency pair volume</strong> report ordered by Coinbase quote currency.</p>
+          <h5 id="currencypairvolumes">Currency Pair Volumes</h5>
+          <div class="table-wrapper">
+            <table class="sortable">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th class="sorttable_numeric">Daily </th>
+                  <th class="sorttable_numeric">Average</th>
+                </tr>
+              </thead>
+              <tbody id="productvolumestablebody"></tbody>
+            </table>
+          </div>
+          <ul class="actions">
+            <li><a class="button primary large scrolly" href="#productprices"><span class="label">Product Prices</span></a></li>
+            <li><a class="button large scrolly" href="#productsummary"><span class="label">Product Summary</span></a></li>
+          </ul>
+        </div>
+      </section>
+      <!--  Section -->
+      <section id="productprices">
+        <header>
+          <h3>Product Prices</h3>
+        </header>
+        <div class="content">
+          <p>Coinbase Prime <strong>currency price</strong> report that includes daily trading range as a percentage of price. 
+             It also includes bid/ask spreads as a percentage of the present ask price.
+          </p>
+          <h5 id="currencyprices">Currency Prices</h5>
+          <div class="table-wrapper">
+            <table class="sortable">
+              <thead>
+                <tr>
+                  <th class="sorttable_numeric">Price</th>
+                  <th>Product</th>
+                  <th class="sorttable_numeric">Range</th>
+                  <th class="sorttable_numeric">Spread</th>
+                </tr>
+              </thead>
+              <tbody id="currencypricestablebody"></tbody>
+            </table>
+          </div>
+          <ul class="actions">
+            <li><a class="button primary large scrolly" href="#productsummary"><span class="label">Product Summary</span></a></li>
+            <li><a class="button large scrolly" href="#productvolumes"><span class="label">Product Volumes</span></a></li>
+          </ul>
+        </div>
+      </section>
+      <!--  Section -->
+      <section id="productsummary">
+        <header>
+          <h3>Product Summary</h3>
+        </header>
+        <div class="content">
+          <p>Coinbase Prime <strong>product volume summary</strong> denominated in US dollars.</p>
+          <h4>Summary</h4>
+          <div class="table-wrapper">
+            <table class="alt">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Relative Volume</th>
+                  <th>Absolute Volume</th>
+                </tr>
+              </thead>
+              <tbody id="summarytablebody"></tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2"></td>
+                  <td id="totalvolume"></td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <h4>Regenerate Summary</h4>
+          <p>Regenerate the Coinbase Prime <strong>product volume summary</strong>.</p>
+          <form method="post" action="javascript:void(0);">
+            <div class="fields">
+              <div class="field">
+                <label for="restapiserver">REST API Server</label>
+                <select id="restapiserver" name="restapiserver">
+                  <option value="https://api.prime.coinbase.com" selected>Production</option>
+                  <option value="https://api-public.sandbox.prime.coinbase.com">Sandbox</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="quotecurrency">Quote Currency</label>
+                <select id="quotecurrency" name="quotecurrency">
+                  <option value="USD" selected>USD</option>
+                  <option value="USDC">USDC</option>
+                  <option value="BTC">BTC</option>
+                </select>
+              </div>
+              <div class="field half">
+                <input id="orderlow" type="radio" name="liquidityorder">
+                <label for="orderlow">Lowest Volume First</label>
+              </div>
+              <div class="field half">
+                <input id="orderhigh" type="radio" name="liquidityorder" checked>
+                <label for="orderhigh">Highest Volume First</label>
+              </div>
+            </div>
+          </form>
+          <ul class="actions">
+            <li><a class="button primary large scrolly" href="#productvolumes"><span class="label">Product Volumes</span></a></li>
+            <li><a class="button large scrolly" href="#productprices"><span class="label">Product Prices</span></a></li>
+          </ul>
+        </div>
+      </section>
+      <!--  Copyright -->
+      <div class="copyright">© Useful Coin LLC. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</div>
+    </div>
+    <!--  Scripts -->
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/jquery.scrolly.min.js"></script>
+    <script src="javascripts/browser.min.js"></script>
+    <script src="javascripts/breakpoints.min.js"></script>
+    <script src="javascripts/util.js"></script>
+    <script src="javascripts/main.js"></script>
+    <script src="javascripts/products.js"></script>
+    <script src="javascripts/ticks.js"></script>
+    <script src="javascripts/sorttable.js"></script>
+  </body>
+</html>
